@@ -6,6 +6,12 @@ public class DataStorage
     private double exchangeRate;       //Note, rate is always in terms of 1 USD to other $$
     private double inverseRate;        //Note, rate is always in terms of 1 USD to other $$
 
+    public void DataStorage()
+    {
+        targetName = "Null";
+        exchangeRate = 2.0;
+        inverseRate = 0.5;
+    }
     public void DataStorage(String name, double numE, double numI)
     {
         targetName = name;

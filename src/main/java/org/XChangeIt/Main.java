@@ -14,15 +14,33 @@ public class Main
     private PreviousTransactions history;
     public static void main(String[] args)
     {
-        String a = "1";
         JFrame frame = new JFrame();
-        JButton englishButto
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //final SceneComponent scene = new SceneComponent();
+        JButton englishB = new JButton("ENGLISH");
+        JButton spanishB = new JButton("ESPAÑOL");
+        JButton japaneseB = new JButton("日本");
+        JButton chineseB = new JButton("中国人");
+
+        JPanel buttons = new JPanel();
+        buttons.add(englishB);
+        buttons.add(spanishB);
+        buttons.add(japaneseB);
+        buttons.add(chineseB);
+        frame.add(buttons, BorderLayout.NORTH);
+        frame.setSize(500,500);
+        frame.setVisible(true);
         //JOptionPane.showMessageDialog(null, "Hello, World!");
-        //array of unknown length for the elements in the data file
+
+
+
         //Sets up the private variables
-        DataStorage data = new DataStorage();
+        DataCollector fetcher = new DataCollector();      //Creates the object to collect the data
+        ArrayList<DataStorage> data = new ArrayList<DataStorage>();     //Creates an arraylist to hold the currency conversion data
+        ArrayList<PreviousTransactions> history = new ArrayList<PreviousTransactions>();    //Creates an arraylist to hold a record of previous transactions
 
-
+        //Gets the data from the input files
+        fetcher.getData(data);
         //Parts of the program:
         //Load data
         //store data
