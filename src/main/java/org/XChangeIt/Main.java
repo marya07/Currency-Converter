@@ -1,4 +1,5 @@
 package org.XChangeIt;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.awt.*;
@@ -40,7 +41,12 @@ public class Main
         ArrayList<PreviousTransactions> history = new ArrayList<PreviousTransactions>();    //Creates an arraylist to hold a record of previous transactions
 
         //Gets the data from the input files
-        fetcher.getData(data);
+        try
+        {
+            fetcher.getData(data);
+        }catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
         //Parts of the program:
         //Load data
         //store data
