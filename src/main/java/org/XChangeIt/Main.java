@@ -44,7 +44,11 @@ public class Main
         try
         {
             fetcher.getData(data);
-        }catch (FileNotFoundException e) {
+        }
+        //If error, catch it
+        catch (FileNotFoundException e)
+        {
+            System.out.println("No input file was found. Quitting program.");
             throw new RuntimeException(e);
         }
         //Parts of the program:
