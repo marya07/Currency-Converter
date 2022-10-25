@@ -9,16 +9,11 @@ import java.io.IOException;                 //Imports class to deal with
 
 import static java.lang.System.exit;
 
-
-
 //Class to bring the data in from another file
 public class DataCollector
 {
     //Default constructor for the DataCollector Class
-    public void DataCollector()
-    {
-
-    }
+    public void DataCollector(){};
 
     //Function to read the data from the file
     public void getData(ArrayList<DataStorage> data) throws FileNotFoundException
@@ -37,7 +32,7 @@ public class DataCollector
         try
         {
             //Gets data from the file and separates it into strings based on the : character
-            Scanner collector = new Scanner(new File("C:\\Users\\talho\\IdeaProjects\\Group-6-XChangeIt-CurrencyConverter\\src\\main\\resources\\ExchangeRates.json")).useDelimiter(":");
+            Scanner collector = new Scanner(new File("src/main/resources/ExchnageRates.json")).useDelimiter(":");
 
 
             //Get data while there is data  left in fhe file
