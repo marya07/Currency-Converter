@@ -1,8 +1,9 @@
-import org.XChangeIt.Convert;
+import org.XChangeIt.Money;
 
 public class TestConversion {
     public static void main(String[] args) throws Exception {
-        Convert C = new Convert();
-        System.out.println("Your Amount: " + C.doConvert());
+        Money m = new Money("AED", 3800);
+        String converted = m.doConvert();
+        System.out.println("Your Amount: " + converted);
     }
 }

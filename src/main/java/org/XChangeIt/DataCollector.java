@@ -78,7 +78,7 @@ public class DataCollector
                     firstIndex = potentialName.indexOf("inverseRate");      //Finds the first position of the string
                 }
                 nextNum = collector.nextDouble();   //Gets the next string of data which should hold the rate of the currency
-                item.setInverseRate(nextNum);   //Stores the inverse rate
+            //    item.setInverseRate(nextNum);   //Stores the inverse rate
                 data.add(item);     //Adds the item to the ArrayList
             }
             collector.close();      //Closes the scanner
