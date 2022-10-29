@@ -1,6 +1,9 @@
 package org.XChangeIt;
 
 // This was used for testing. It might be needed later. Otherwise, delete. - Danial Ahari
+import org.XChangeIt.models.Receipt;
+import org.XChangeIt.models.TransactionList;
+
 import java.util.Date;
 
 public class Main {
@@ -14,6 +17,9 @@ public class Main {
         // TransactionList List = new TransactionList();
         // List.addNewTransaction(new Date(), "USD", "EUR",1,1);
         // System.out.println(List.getTransactionByIndex(0).getEndingCurrency());
+        // The first two lines of the transaction test, combined with the following, tests receipts.
+        // Receipt rec = new Receipt(List.getTransactionByIndex(0));
+        // rec.printReceipt();
         // - Danial Ahari
     }
 }
