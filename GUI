@@ -66,10 +66,12 @@ public class GUI {
         helpB.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                JFrame helpWindow = new JFrame();
                 help.setSize(50, 50);
                 help.setText("This is used to convert currencies. Select which currencies you would like to convert from and then input the amount you would like to convert.");
-                frame.add(helpLabel, BorderLayout.CENTER);
-                frame.setVisible(true);
+                helpWindow.add(helpLabel, BorderLayout.CENTER);
+                helpWindow.setSize(500, 500);
+                helpWindow.setVisible(true);
             }
         });
 
@@ -80,12 +82,13 @@ public class GUI {
         buttons.add(japaneseB);
         buttons.add(chineseB);
 
+        //JFrame helpWindow = new JFrame();
         JPanel helpButton = new JPanel();
         helpButton.add(helpB);
         frame.add(helpButton, BorderLayout.SOUTH);
 
         frame.add(buttons, BorderLayout.NORTH);
-        frame.setSize(500,500);
+        frame.setSize(1000, 750);
         frame.setVisible(true);
     }
 }
