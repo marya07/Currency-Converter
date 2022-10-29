@@ -1,0 +1,91 @@
+import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.awt.event.*;
+
+public class GUI {
+    private JButton engButton;
+    private JButton ESPAÑOLButton;
+    private JButton button1;
+    private JButton button2;
+    private JPanel panel1;
+
+    public static void main(String[] args)
+    {
+        JFrame frame = new JFrame();
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JLabel greet = new JLabel();
+        JPanel label = new JPanel();
+        label.add(greet);
+        JLabel help = new JLabel();
+        JPanel helpLabel = new JPanel();
+        helpLabel.add(help);
+        JButton englishB = new JButton("ENGLISH");
+        englishB.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //JTextField engGreet = new JTextField();
+                greet.setText("Welcome!");
+                frame.add(label, BorderLayout.CENTER);
+                frame.setVisible(true);
+            }
+
+        });
+        JButton spanishB = new JButton("ESPAÑOL");
+        spanishB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //JTextField spanGreet = new JTextField();
+                greet.setText("¡Bienvenidos!");
+                frame.add(label, BorderLayout.CENTER);
+                frame.setVisible(true);
+            }
+        });
+        JButton japaneseB = new JButton("日本");
+        japaneseB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //JTextField japGreet = new JTextField();
+                greet.setText("いらっしゃいませ!");
+                frame.add(label, BorderLayout.CENTER);
+                frame.setVisible(true);
+            }
+        });
+        JButton chineseB = new JButton("中国人");
+        chineseB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //JTextField chinGreet = new JTextField();
+                greet.setText("欢迎!");
+                frame.add(label, BorderLayout.CENTER);
+                frame.setVisible(true);
+            }
+        });
+        JButton helpB = new JButton("Help/FAQs");
+        helpB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                help.setSize(50, 50);
+                help.setText("This is used to convert currencies. Select which currencies you would like to convert from and then input the amount you would like to convert.");
+                frame.add(helpLabel, BorderLayout.CENTER);
+                frame.setVisible(true);
+            }
+        });
+
+        JPanel buttons = new JPanel();
+        //JPanel text = new JPanel();
+        buttons.add(englishB);
+        buttons.add(spanishB);
+        buttons.add(japaneseB);
+        buttons.add(chineseB);
+
+        JPanel helpButton = new JPanel();
+        helpButton.add(helpB);
+        frame.add(helpButton, BorderLayout.SOUTH);
+
+        frame.add(buttons, BorderLayout.NORTH);
+        frame.setSize(500,500);
+        frame.setVisible(true);
+    }
+}
