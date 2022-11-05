@@ -1,6 +1,8 @@
 package org.XChangeIt.models;
 
-public class Conversion {
+public class DataStorage {
+    private final String rateDescription;
+    private final String rateDate;
     private final String baseCurrency;
     private final String targetCurrency;
     private final double exchangeRate;
@@ -13,11 +15,29 @@ public class Conversion {
      * @param exchangeRate The double representing the exchange rate.
      * @param inverseRate The double representing the inverse exchange rate.
      */
-    public Conversion(String baseCurrency, String targetCurrency, double exchangeRate, double inverseRate) {
+    public DataStorage(String rateDescription, String rateDate, String baseCurrency, String targetCurrency, double exchangeRate, double inverseRate) {
+        this.rateDescription = rateDescription;
+        this.rateDate = rateDate;
         this.baseCurrency = baseCurrency;
         this.targetCurrency = targetCurrency;
         this.exchangeRate = exchangeRate;
         this.inverseRate = inverseRate;
+    }
+
+    /**
+     * Function to return rate description.
+     * @return String representing both base currency and target currency rates.
+     */
+    public String getRateDescription() {
+        return rateDescription;
+    }
+
+    /**
+     * Function to return date for the given rate.
+     * @return String representing the date and time when rate was obtained.
+     */
+    public String getRateDate() {
+        return rateDate;
     }
 
     /**

@@ -1,9 +1,19 @@
-import org.XChangeIt.Money;
+import org.XChangeIt.Convert;
+
+import java.util.Scanner;
 
 public class TestConversion {
-    public static void main(String[] args) throws Exception {
-        Money m = new Money("AED", 3800);
-        String converted = m.doConvert();
-        System.out.println("Your Amount: " + converted);
+    public static void main(String[] args) {
+        String fromCurrency;
+        int amount;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Currency Type: ");
+        fromCurrency = scanner.nextLine();
+        System.out.println("Enter Currency Amount: ");
+        amount = scanner.nextInt();
+
+        Convert c = new Convert(fromCurrency, amount);
+        System.out.println("Your Amount: " + c.doConvert());
     }
 }
