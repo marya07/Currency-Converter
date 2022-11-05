@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class TransactionList {
-    private ArrayList<Transaction> transactionArrayList = new ArrayList<Transaction>();
+    private final ArrayList<Transaction> transactionArrayList = new ArrayList<Transaction>();
 
     /**
      * Adds a transaction to the list, given the transaction object.
