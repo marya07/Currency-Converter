@@ -1,4 +1,4 @@
-import org.XChangeIt.Convert;
+import org.XChangeIt.Converter;
 
 import java.util.Scanner;
 
@@ -13,7 +13,7 @@ public class TestConversion {
         System.out.println("Enter Currency Amount: ");
         amount = scanner.nextInt();
 
-        Convert c = new Convert(fromCurrency, amount);
+        Converter c = new Converter(fromCurrency, amount);
         System.out.println("Your Amount: " + c.doConvert());
     }
 }

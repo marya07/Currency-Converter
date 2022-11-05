@@ -1,6 +1,7 @@
 package org.XChangeIt.models;
 
 public class DataStorage {
+
     private final String rateDescription;
     private final String rateDate;
     private final String baseCurrency;
@@ -15,6 +16,7 @@ public class DataStorage {
      * @param exchangeRate The double representing the exchange rate.
      * @param inverseRate The double representing the inverse exchange rate.
      */
+
     public DataStorage(String rateDescription, String rateDate, String baseCurrency, String targetCurrency, double exchangeRate, double inverseRate) {
         this.rateDescription = rateDescription;
         this.rateDate = rateDate;
