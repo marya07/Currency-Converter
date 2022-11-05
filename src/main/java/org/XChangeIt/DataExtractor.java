@@ -39,7 +39,7 @@ public class DataExtractor {
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(info);
             NodeList list = doc.getElementsByTagName("ProjectProfits");
-
+            //Gets the first item
             Node n = list.item(0);
             Element e = (Element) n;
             ProfitsCollected = Double.parseDouble(e.getElementsByTagName("ProfitSoFar").item(0).getTextContent());
