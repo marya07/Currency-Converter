@@ -6,8 +6,8 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 // Class to implement conversion functions using the given data
-public class Convert {
-    public Convert(String fromCurrency, int amount) {
+public class Converter {
+    public Converter(String fromCurrency, int amount) {
         File file = new File("src/main/resources/ExchangeRates.xml");
         DataExtractor extractor = new DataExtractor(file, fromCurrency);
         this.currencyData = extractor.extraction();
