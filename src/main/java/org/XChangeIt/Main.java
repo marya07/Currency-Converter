@@ -1,10 +1,21 @@
 package org.XChangeIt;
 
+import org.XChangeIt.models.DataStorage;
+
+import java.io.File;
+
 // This was used for testing. It might be needed later. Otherwise, delete. - Danial Ahari
+import java.io.FileNotFoundException;
 import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
+        File file = new File("src/main/resources/Profits.xml");
+        DataExtractor extractor = new DataExtractor(file, "EUR");
+        double data;
+        data = extractor.getProfits();
+        System.out.println(data);
+
         // This bit of code briefly tested to see if basic features of Conversion and ConversionList were working.
         // ConversionList List = new ConversionList();
         // List.addNewConversion("USD","CFA",659.90,0.0015);
