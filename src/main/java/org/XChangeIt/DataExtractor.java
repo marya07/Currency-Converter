@@ -23,38 +23,6 @@ public class DataExtractor {
     }
 
     /**
-     * Extraction method to get the current profit total from this project
-     * If -1 is returned then profits needs to be set to 0.0 of type double
-     * @return double variable with exact value of money made.
-     */
-    public double getProfits()// throws FileNotFoundException
-    {
-        double ProfitsCollected = -1;    //Variable to hold the profits collected. -1 to show not set. If it remains -1, there is a problem
-        //Creates a new File variable to hold the Profits.xml file
-        File info = new File("src/main/resources/Profits.xml");    //Opens the file
-        //Tries to load the data
-        try
-        {
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document doc = builder.parse(info);
-            NodeList list = doc.getElementsByTagName("ProjectProfits");
-            //Gets the first item
-            Node n = list.item(0);
-            Element e = (Element) n;
-            ProfitsCollected = Double.parseDouble(e.getElementsByTagName("ProfitSoFar").item(0).getTextContent());
-        }
-        //Catches the exception
-        catch (Exception e)
-        {
-            e.getCause();
-            e.printStackTrace(System.out);
-        }
-        //Returns the collected profits
-        return ProfitsCollected;
-    }
-
-    /**
      * Extraction method to get data for the given currency from the data file.
      * @return DataStorage object with data for the given currency.
      */
