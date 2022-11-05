@@ -1,11 +1,6 @@
 package org.XChangeIt;
 
 // This was used for testing. It might be needed later. Otherwise, delete. - Danial Ahari
-import org.XChangeIt.models.Conversion;
-import org.XChangeIt.models.Receipt;
-import org.XChangeIt.models.TransactionList;
-
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
