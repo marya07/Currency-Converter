@@ -2,8 +2,12 @@ package org.XChangeIt;
 
 // This was used for testing. It might be needed later. Otherwise, delete. - Danial Ahari
 
+import java.io.FileNotFoundException;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         // This bit of code briefly tested to see if basic features of Conversion and ConversionList were working.
         // Conversion conv = new Conversion("USD","CFA",659.90,0.0015);
         // System.out.println(conv.getExchangeRate());
