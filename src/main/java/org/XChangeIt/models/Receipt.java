@@ -1,5 +1,7 @@
 package org.XChangeIt.models;
 
+import java.io.*;
+
 public class Receipt {
     private final String receiptText;
 
@@ -21,9 +23,41 @@ public class Receipt {
     /**
      * Function to "print" the receipt. Prints the receipt to a file to simulate printing through a printer
      */
-    public void printReceipt() {
-        // Replace this with code to output to file later.
-        System.out.print(receiptText);
+    public void printReceipt()
+    {
+        try
+        {
+            //Opens the receipts file in append mode.
+            BufferedWriter receiptFile = new BufferedWriter(new FileWriter("src/main/Output/Transaction Receipts.txt", true));
+            receiptFile.write(receiptText);     //Appends the receipt data to the file
+            receiptFile.close();                //Closes the connection to the file
+        }
+        //
+        catch (FileNotFoundException FNFE)
+        {
+            try
+            {
+                System.out.println("Output file not found. Creating output file.");
+                //Creates the output file to output the receipt to
+                FileWriter myWriter = new FileWriter("src/main/Output/Transaction Receipts.txt");
+                myWriter.write(receiptText);
+                myWriter.close();
+            }
+            //Catches any problem from creating the file
+            catch (Exception anything)
+            {
+                //Outputs the reason for the problem
+                anything.getCause();
+                anything.printStackTrace(System.out);
+            }
+        }
+        //Catches any problem that remains
+        catch (Exception anything)
+        {
+            //Outputs the reason for the problem
+            anything.getCause();
+            anything.printStackTrace(System.out);
+        }
     }
 
     /**
