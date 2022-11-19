@@ -37,7 +37,7 @@ public class DataExtractor {
             for (int i = 0; list.getLength() > i; i++) {
                 Node n = list.item(i);
                 Element e = (Element) n;
-                if (Objects.equals(e.getElementsByTagName("targetCurrency").item(0).getTextContent(),
+                if (Objects.equals(e.getElementsByTagName("targetName").item(0).getTextContent(),
                         baseCurrency)) {
                     String description = e.getElementsByTagName("description").item(0).getTextContent();
                     String date = e.getElementsByTagName("pubDate").item(0).getTextContent();

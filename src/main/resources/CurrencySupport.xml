@@ -1,0 +1,26 @@
+<currencies>
+    <currencY>
+        <name>EURO</name>
+        <code>EUR</code>
+    </currencY>
+    <currencY>
+        <name>CHINESE YUAN</name>
+        <code>CYN</code>
+    </currencY>
+    <currencY>
+        <name>JAPANESE YEN</name>
+        <code>JPY</code>
+    </currencY>
+    <currencY>
+        <name>CANADIAN DOLLAR</name>
+        <code>CAD</code>
+    </currencY>
+    <currencY>
+        <name>MEXICAN PESO</name>
+        <code>EUR</code>
+    </currencY>
+    <currencY>
+        <name>RUSSIAN RUBLE</name>
+        <code>RUB</code>
+    </currencY>
+</currencies>
