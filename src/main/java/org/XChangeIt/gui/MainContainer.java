@@ -73,8 +73,34 @@ public class MainContainer extends JFrame {
                 convert.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println(textField.getText());
+                        Double amt = Double.valueOf((String)textField.getText());
+                        String amtreceipt = String.valueOf((amt));
+                        System.out.println(amt);
+
                         JFrame receipt = new JFrame();
+                        JPanel receiptOut = new JPanel();
+                        JLabel amountEntered = new JLabel();
+                        JLabel amtinput = new JLabel();
+                        JLabel fee = new JLabel();
+                        JLabel feeamt = new JLabel();
+                        JLabel total = new JLabel();
+                        JLabel totalout = new JLabel();
+                        amountEntered.setText("Amount to Convert:");
+                        amtinput.setText(amtreceipt);
+                        fee.setText("Fee:");
+                        feeamt.setText("0.022");
+                        total.setText("Total:");
+                        totalout.setText(" ");
+
+                        receiptOut.add(amountEntered);
+                        receiptOut.add(amtinput);
+                        receiptOut.add(fee);
+                        receiptOut.add(feeamt);
+                        receiptOut.add(total);
+                        receiptOut.add(totalout);
+                        receipt.setLayout(new GridLayout(5, 1));
+                        receiptOut.setLayout(new GridLayout(3, 1));
+                        receipt.add(receiptOut, BorderLayout.CENTER);
                         receipt.setSize(250, 450);
                         receipt.setLocationRelativeTo(null);
                         receipt.setVisible(true);
@@ -249,6 +275,27 @@ public class MainContainer extends JFrame {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         JFrame receipt = new JFrame();
+                        JPanel receiptOut = new JPanel();
+                        JLabel amountEntered = new JLabel();
+                        JLabel amtinput = new JLabel();
+                        JLabel fee = new JLabel();
+                        JLabel feeamt = new JLabel();
+                        JLabel total = new JLabel();
+                        JLabel totalout = new JLabel();
+                        amountEntered.setText("Amount to Convert:");
+                        amtinput.setText(" ");
+                        fee.setText("Fee:");
+                        feeamt.setText("0.022");
+                        total.setText("Total:");
+                        totalout.setText(" ");
+
+                        receiptOut.add(amountEntered);
+                        receiptOut.add(amtinput);
+                        receiptOut.add(fee);
+                        receiptOut.add(feeamt);
+                        receiptOut.add(total);
+                        receiptOut.add(totalout);
+
                         receipt.setSize(150, 500);
                         receipt.setLocationRelativeTo(null);
                         receipt.setVisible(true);
