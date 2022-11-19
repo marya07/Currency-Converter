@@ -15,7 +15,9 @@ public class TestConversion {
             System.out.println("Enter Currency Amount: ");
             amount = scanner.nextInt();
 
-            Converter c = new Converter(fromCurrency, amount);
+            Money money = new Money("Euro", 5000);
+
+            Converter c = new Converter(money);
             Money m = c.doConvert();
             System.out.println("Your Amount: " + m.getCurrencyType() + " " + m.getAmount());
         } catch (Exception e){
