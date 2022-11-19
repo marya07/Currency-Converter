@@ -13,7 +13,7 @@ import java.util.Objects;
 
 public class DataExtractor {
     /**
-     * Creates a new DataExtractor object for extracting data from the given XML file containing rate data.
+     * Creates a new DataExtractor object for extracting data from the given XML file conating rate data.
      * @param file File variable initialized using XML file location to extract data from.
      * @param fromCurrency currency for which data needs to extracted for conversion.
      */
