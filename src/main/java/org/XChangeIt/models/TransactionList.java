@@ -16,14 +16,14 @@ public class TransactionList {
 
     /**
      * Creates and adds a transaction to the list, given the transaction info.
-     * @param transactionTime Date object containing the time of the transaction.
      * @param startingCurrency String representing the starting currency.
      * @param endingCurrency String representing the ending currency.
      * @param startingAmount Double representing the starting amount.
      * @param endingAmount Double representing the ending amount.
+     * @param fee Double representing the fee charged for conversion.
      */
-    public void addNewTransaction(Date transactionTime, String startingCurrency, String endingCurrency, double startingAmount, double endingAmount) {
-        Transaction newTrans = new Transaction(transactionTime, startingCurrency, endingCurrency, startingAmount, endingAmount);
+    public void addNewTransaction(String startingCurrency, String endingCurrency, double startingAmount, double endingAmount, double fee) {
+        Transaction newTrans = new Transaction(startingCurrency, endingCurrency, startingAmount, endingAmount, fee);
         transactionArrayList.add(newTrans);
     }
 
