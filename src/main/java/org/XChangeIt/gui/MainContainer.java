@@ -36,6 +36,7 @@ public class MainContainer extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JFrame engWindow = new JFrame();
+                engWindow.setLayout(new GridLayout(5, 2));
                 engWindow.setSize(500, 500);
                 engWindow.setLocationRelativeTo(null);
 
@@ -46,10 +47,11 @@ public class MainContainer extends JFrame {
                 label.add(greet);
 
                 JLabel currencyL = new JLabel("Currency: ");
-                currencyL.setFont(new Font("Symbol", Font.BOLD, 15));
+                currencyL.setFont(new Font("Arial", Font.BOLD, 15));
                 currencyL.setSize(30, 30);
 
                 JPanel comboBoxPanel = new JPanel();
+                comboBoxPanel.setLayout(new GridLayout(2, 1));
                 comboBoxPanel.add(currencyL);
 
                 JComboBox<String> currencyBox = new JComboBox<>(currenciesSupported);
@@ -57,12 +59,12 @@ public class MainContainer extends JFrame {
                 comboBoxPanel.add(currencyBox);
 
                 JLabel amountL = new JLabel("Amount");
-                amountL.setFont(new Font("Symbol", Font.BOLD, 15));
+                amountL.setFont(new Font("Arial", Font.BOLD, 15));
                 amountL.setSize(30, 30);
 
                 comboBoxPanel.add(amountL);
 
-                JTextField textField = new JTextField();
+                JTextField textField = new JTextField(10);
                 textField.setBackground(Color.lightGray);
                 textField.setSize(100, 30);
                 comboBoxPanel.add(textField);
@@ -300,8 +302,8 @@ public class MainContainer extends JFrame {
 
 
        // frame.add(helpButton, BorderLayout.SOUTH);
-        frame.add(convertPanel, BorderLayout.SOUTH);
-        frame.add(selector, BorderLayout.CENTER);
+        //frame.add(convertPanel, BorderLayout.SOUTH);
+        //frame.add(selector, BorderLayout.CENTER);
         frame.add(langButtons, BorderLayout.NORTH);
         frame.setSize(750, 500); //creates the main window for the program
         frame.setLocationRelativeTo(null);
