@@ -8,14 +8,12 @@ import java.util.Locale;
 public class Converter {
     /**
      * Creates a Converter object to handle conversion of given amount and currency type to base currency.
-     * @param fromCurrency String for currency to convert from.
-     * @param amount Total integer amount to convert to base currency.
      */
-    public Converter(String fromCurrency, int amount) {
+    public Converter(Money m) {
         File file = new File("src/main/resources/ExchangeRates.xml");
-        DataExtractor extractor = new DataExtractor(file, fromCurrency);
+        DataExtractor extractor = new DataExtractor(file, m.getCurrencyType());
         this.currencyData = extractor.extraction();
-        this.amount = amount;
+        this.amount = m.getAmount();
     }
 
     /**
@@ -30,5 +28,5 @@ public class Converter {
     }
 
     final private DataStorage currencyData;
-    final private int amount;
+    final private double amount;
 }
