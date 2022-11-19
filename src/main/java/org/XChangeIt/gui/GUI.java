@@ -152,13 +152,25 @@ public class GUI {
         JLabel greet = new JLabel();
         JCheckBox agree = new JCheckBox();
         JPanel label = new JPanel();
-        JTextArea currencyamt = new JTextArea(); //creates the text box for user to enter amount they wish to convert
+        JPanel lower = new JPanel();
+        JTextField currencyAmt = new JTextField(10); //creates the text box for user to enter amount they wish to convert
         JPanel input = new JPanel();
-        String[] currencyList = {"AUD","BRL","CAD","CNY","EUR","GBP","INR","JPY","MXN","NZD","RUB"};
+
+        JPanel amtPanel = new JPanel();
+        JLabel amountL = new JLabel("Amount:");
+        amountL.setFont(new Font("Arial", Font.BOLD, 15));
+        amtPanel.add(amountL);
+        amtPanel.add(currencyAmt);
+
+        JLabel currencyL = new JLabel("Currency:");
+        currencyL.setFont(new Font("Arial", Font.BOLD, 15));
+        String[] currencyList = {"AUD (Australian Dollar)","BRL (Brazilian Rial)","CAD (Canadian Dollar)","CNY (Chinese Yuan)","EUR (Euro)","GBP (Great British Pound)","INR (Indian Rupee)","JPY (Japanese Yen)","MXN (Mexican Peso)","NZD (New Zealand Dollar)","RUB (Russian Ruble)"};
         JComboBox currencySelect = new JComboBox(currencyList);
-        input.add(currencyamt);
+       // input.add(amountL);
+        //input.add(currencyamt);
+        input.add(currencyL);
         input.add(currencySelect);
-        input.add(agree);
+        //input.add(agree);
         label.add(greet);
         JButton convert = new JButton();
         JButton helpB = new JButton();
@@ -215,18 +227,26 @@ public class GUI {
         JPanel converter = new JPanel();
         converter.add(convert);
         converter.add(helpB);
+        lower.setLayout(new GridLayout(2, 1));
+        lower.add(agree);
+        lower.add(converter);
         JFrame convWindow = new JFrame();
         convWindow.setExtendedState(JFrame.MAXIMIZED_BOTH);
         greet.setSize(50, 50);
-        convWindow.add(converter, BorderLayout.SOUTH);
-        convWindow.add(input, BorderLayout.CENTER);
+        convWindow.setLayout(new GridLayout(3, 1));
         convWindow.add(label, BorderLayout.NORTH);
+        JPanel all = new JPanel();
+        all.setLayout(new GridLayout(2, 1));
+        all.add(input);
+        all.add(amtPanel);
+        convWindow.add(all);
+        convWindow.add(lower, BorderLayout.SOUTH);
         convWindow.setVisible(true);
 
         convert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double amount = parseDouble(currencyamt.getText());
+                double amount = parseDouble(currencyAmt.getText());
                 String fromCurrency = Objects.requireNonNull(currencySelect.getSelectedItem()).toString();
                 // doTransaction(amount,fromCurrency);
                 openReceiptWindow(language);
