@@ -16,7 +16,6 @@ public class GUI {
     {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        JTextArea currencyamt = new JTextArea(); //creates the text box for user to enter amount they wish to convert
 
 
         /** When the english button is pressed then it pops up the greeting in english */
@@ -150,6 +149,9 @@ public class GUI {
     public static void openConversionWindow(Translator language) {
         JLabel greet = new JLabel();
         JPanel label = new JPanel();
+        JTextArea currencyamt = new JTextArea(); //creates the text box for user to enter amount they wish to convert
+        JPanel input = new JPanel();
+        input.add(currencyamt);
         label.add(greet);
         JButton convert = new JButton();
         JButton helpB = new JButton();
@@ -202,7 +204,8 @@ public class GUI {
         convWindow.setExtendedState(JFrame.MAXIMIZED_BOTH);
         greet.setSize(50, 50);
         convWindow.add(converter, BorderLayout.SOUTH);
-        convWindow.add(label, BorderLayout.CENTER);
+        convWindow.add(input, BorderLayout.CENTER);
+        convWindow.add(label, BorderLayout.NORTH);
         convWindow.setVisible(true);
 
         convert.addActionListener(new ActionListener() {
