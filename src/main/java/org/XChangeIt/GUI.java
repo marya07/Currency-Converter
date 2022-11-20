@@ -6,8 +6,10 @@ import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Objects;
 
 import static java.awt.Component.CENTER_ALIGNMENT;
+import static java.lang.Double.parseDouble;
 
 
 public class GUI {
@@ -148,10 +150,15 @@ public class GUI {
 
     public static void openConversionWindow(Translator language) {
         JLabel greet = new JLabel();
+        JCheckBox agree = new JCheckBox();
         JPanel label = new JPanel();
         JTextArea currencyamt = new JTextArea(); //creates the text box for user to enter amount they wish to convert
         JPanel input = new JPanel();
+        String[] currencyList = {"AUD","BRL","CAD","CNY","EUR","GBP","INR","JPY","MXN","NZD","RUB"};
+        JComboBox currencySelect = new JComboBox(currencyList);
         input.add(currencyamt);
+        input.add(currencySelect);
+        input.add(agree);
         label.add(greet);
         JButton convert = new JButton();
         JButton helpB = new JButton();
@@ -160,41 +167,49 @@ public class GUI {
                 helpB.setText("Help");
                 greet.setText("Welcome!");
                 convert.setText("Convert");
+                agree.setText("I agree to being charged a fee of 2.2% to convert this currency.");
             }
             case CHINESE -> {
                 helpB.setText("帮助");
                 greet.setText("欢迎！");
                 convert.setText("兑换");
+                agree.setText("我同意收取 2.2% 的费用以转换此货币。");
             }
             case FRENCH -> {
                 helpB.setText("Aider");
                 greet.setText("Bienvenu!");
                 convert.setText("Convertir");
+                agree.setText("J'accepte de payer des frais de 2,2% pour convertir cette devise.");
             }
             case GERMAN -> {
                 helpB.setText("Hilfe");
                 greet.setText("Willkommen!");
                 convert.setText("Konvertieren");
+                agree.setText("Ich stimme zu, dass für die Umrechnung dieser Währung eine Gebühr von 2,2 % erhoben wird.");
             }
             case JAPANESE -> {
                 helpB.setText("ヘルプ");
                 greet.setText("いらっしゃいませ！");
                 convert.setText("変換");
+                agree.setText("この通貨の換算には 2.2% の手数料がかかることに同意します。");
             }
             case PORTUGUESE -> {
                 helpB.setText("Ajuda");
                 greet.setText("Bem-vindo!");
                 convert.setText("Converter");
+                agree.setText("Concordo que há uma taxa de 2,2% para converter esta moeda.");
             }
             case RUSSIAN -> {
                 helpB.setText("Помощь");
                 greet.setText("Добро пожаловать!");
                 convert.setText("Конвертировать");
+                agree.setText("Я согласен с комиссией в размере 2,2% за конвертацию этой валюты.");
             }
             case SPANISH -> {
                 helpB.setText("Ayuda");
                 greet.setText("¡Bienvenidos!");
                 convert.setText("Convertir");
+                agree.setText("Acepto que se me cobre una tarifa del 2,2% para convertir esta moneda.");
             }
         }
         JPanel converter = new JPanel();
@@ -211,6 +226,9 @@ public class GUI {
         convert.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                double amount = parseDouble(currencyamt.getText());
+                String fromCurrency = Objects.requireNonNull(currencySelect.getSelectedItem()).toString();
+                // doTransaction(amount,fromCurrency);
                 openReceiptWindow(language);
             }
         });
@@ -251,6 +269,9 @@ public class GUI {
 
     public static void openReceiptWindow(Translator language) {
         JFrame receipt = new JFrame();
+        JLabel receiptText = new JLabel();
+        // receiptText.setText(getReceiptText(language));
+        receipt.add(receiptText,BorderLayout.CENTER);
         receipt.setSize(500, 500);
         receipt.setVisible(true);
     }
