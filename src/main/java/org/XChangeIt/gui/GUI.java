@@ -1,4 +1,4 @@
-package org.XChangeIt;
+package org.XChangeIt.gui;
 
 import org.XChangeIt.translation.Translator;
 
