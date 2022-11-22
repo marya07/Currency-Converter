@@ -1,4 +1,4 @@
-package org.XChangeIt.models;
+package org.XChangeIt.model;
 
 public class Receipt {
     private final String receiptText;

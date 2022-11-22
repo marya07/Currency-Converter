@@ -1,5 +1,5 @@
-import org.XChangeIt.Converter;
-import org.XChangeIt.models.Money;
+import org.XChangeIt.controller.Converter;
+import org.XChangeIt.model.Money;
 
 import java.util.Scanner;
 

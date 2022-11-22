@@ -1,4 +1,4 @@
-package org.XChangeIt.models;
+package org.XChangeIt.model;
 
 import java.util.Date;
 

@@ -1,5 +1,5 @@
-package org.XChangeIt;
-import org.XChangeIt.models.DataStorage;
+package org.XChangeIt.controller;
+import org.XChangeIt.model.DataStorage;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;

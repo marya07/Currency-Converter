@@ -1,5 +1,5 @@
-import org.XChangeIt.DataExtractor;
-import org.XChangeIt.models.DataStorage;
+import org.XChangeIt.controller.DataExtractor;
+import org.XChangeIt.model.DataStorage;
 
 import java.io.File;
 

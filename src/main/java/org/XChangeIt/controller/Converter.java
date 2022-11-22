@@ -1,10 +1,9 @@
-package org.XChangeIt;
-import org.XChangeIt.models.DataStorage;
-import org.XChangeIt.models.Money;
+package org.XChangeIt.controller;
+import org.XChangeIt.model.DataStorage;
+import org.XChangeIt.model.Money;
 
 import java.io.File;
-import java.text.NumberFormat;
-import java.util.Locale;
+
 public class Converter {
     /**
      * Creates a Converter object to handle conversion of given amount and currency type to base currency.

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item>
+        <name>ENGLISH</name>
+        <nameText>ENGLISH</nameText>
+        <helpText>Help</helpText>
+        <welcomeText>Welcome!</welcomeText>
+        <convertText>Convert</convertText>
+        <feeText>I agree to being charged a fee of 2.2% to convert this currency.</feeText>
+    </item>
+    <item>
+        <name>CHINESE</name>
+        <nameText>中国人</nameText>
+        <helpText>帮助</helpText>
+        <greetText>欢迎！!</greetText>
+        <convertText>兑换</convertText>
+        <feeText>我同意收取 2.2% 的费用以转换此货币。</feeText>
+    </item>
+    <item>
+        <name>FRENCH</name>
+        <nameText>FRANÇAIS</nameText>
+        <helpText>Aider</helpText>
+        <greetText>Bienvenu!</greetText>
+        <convertText>Convertir</convertText>
+        <feeText>J'accepte de payer des frais de 2,2% pour convertir cette devise.</feeText>
+    </item>
+    <item>
+        <name>GERMAN</name>
+        <nameText>DEUTSCH</nameText>
+        <helpText>Hilfe</helpText>
+        <greetText>Willkommen!</greetText>
+        <convertText>Konvertieren</convertText>
+        <feeText>Ich stimme zu, dass für die Umrechnung dieser Währung eine Gebühr von 2,2 % erhoben wird.</feeText>
+    </item>
+    <item>
+        <name>JAPANESE</name>
+        <nameText>日本</nameText>
+        <helpText>ヘルプ</helpText>
+        <welcomeText>いらっしゃいませ！</welcomeText>
+        <convertText>変換</convertText>
+        <feeText>この通貨の換算には 2.2% の手数料がかかることに同意します。</feeText>
+    </item>
+    <item>
+        <name>PORTUGUESE</name>
+        <nameText>PORTUGUÊS</nameText>
+        <helpText>Ajuda</helpText>
+        <welcomeText>Bem-vindo!</welcomeText>
+        <convertText>Converter</convertText>
+        <feeText>Concordo que há uma taxa de 2,2% para converter esta moeda.</feeText>
+    </item>
+    <item>
+        <name>RUSSIAN</name>
+        <nameText>РУССКИЙ</nameText>
+        <helpText>Помощь</helpText>
+        <welcomeText>Добро пожаловать!</welcomeText>
+        <convertText>Конвертировать</convertText>
+        <feeText>Я согласен с комиссией в размере 2,2% за конвертацию этой валюты.</feeText>
+    </item>
+    <item>
+        <name>SPANISH</name>
+        <nameText>ESPAÑOL</nameText>
+        <helpText>Ayuda</helpText>
+        <welcomeText>¡Bienvenidos!</welcomeText>
+        <convertText>Convertir</convertText>
+        <feeText>Acepto que se me cobre una tarifa del 2,2% para convertir esta moneda.</feeText>
+    </item>
+</resources>
