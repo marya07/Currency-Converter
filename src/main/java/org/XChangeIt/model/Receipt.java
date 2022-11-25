@@ -3,24 +3,23 @@ package org.XChangeIt.model;
 public class Receipt {
     private final String receiptText;
 
-    /**
-     * Constructs a new receipt object to store the receipt.
-     * @param trans Transaction object to make the receipt from.
-     */
-    public Receipt(Transaction trans) {
+
+    public Receipt(Transaction transaction, Translator translator) {
         // The formatting of "receiptText" here is a placeholder. Change if need-be.
-        this.receiptText = "Your Transaction Information:" +
-                "\n\nTransaction date and time: " + trans.getTransactionTime().toString() +
-                "\nCurrency Deposited: " + trans.getStartingAmount() + trans.getStartingCurrency() +
-                "\nCurrency Withdrawn: " + trans.getEndingAmount() + trans.getEndingCurrency() +
-                "\n\nThank you for doing business with us. Please come again.";
+        this.receiptText = translator.getSummaryTitle() +
+                "\n\n" + translator.getTransactionProcessed() +  transaction.getTransactionTime().toString() +
+                "\n" + translator.getCurrencyDeposited() + transaction.getStartingAmount().getCurrencyType() + " " +
+                transaction.getStartingAmount().getAmount() + "\n" + translator.getCurrencyWithdrawn() +
+                transaction.getEndingAmount().getCurrencyType() + " " + transaction.getEndingAmount().getAmount() +
+                "\n" + translator.getFeeCharged() + transaction.getFees().getCurrencyType() + " " +
+                transaction.getFees().getAmount() + "\n\n" + translator.getThanksMessage();
     }
 
     /**
      * Function to "print" the receipt.
      */
-    public void printReceipt() {
+    public String getReceiptData() {
         // Replace this with code to output to file later.
-        System.out.print(receiptText);
+        return receiptText;
     }
 }
