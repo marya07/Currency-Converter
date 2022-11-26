@@ -1,13 +1,11 @@
 package org.XChangeIt.model;
 
-import org.XChangeIt.model.Money;
-import org.XChangeIt.model.Receipt;
-import org.XChangeIt.model.Transaction;
-import org.XChangeIt.model.Translator;
+import org.XChangeIt.translation.Translator;
 
 import java.util.Date;
 
-public class MainModel {
+public class AppModel {
+    private final TransactionList transactionList = new TransactionList();
     private Transaction transaction;
     private Translator translator;
     private Receipt receipt;
@@ -17,6 +15,7 @@ public class MainModel {
 
     public void setTransaction(Date date, Money startingAmount, Money endingAmount, Money fees){
         transaction = new Transaction(date, startingAmount, endingAmount, fees);
+        transactionList.addTransaction(transaction);
         receipt = new Receipt(transaction, translator);
     }
 
@@ -32,4 +31,7 @@ public class MainModel {
         this.translator = translator;
     }
 
+    public TransactionList getTransactionList() {
+        return transactionList;
+    }
 }

@@ -1,7 +1,7 @@
 package org.XChangeIt.controller;
-import org.XChangeIt.model.MainModel;
+import org.XChangeIt.model.AppModel;
 import org.XChangeIt.model.Money;
-import org.XChangeIt.model.Translator;
+import org.XChangeIt.translation.Translator;
 import org.XChangeIt.view.AppView;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,11 +10,11 @@ import java.util.Date;
 
 public class Controller {
     private final AppView appView;
-    private final MainModel testModel;
+    private final AppModel appModel;
 
-    public Controller(AppView appView, MainModel testModel) {
+    public Controller(AppView appView, AppModel appModel) {
         this.appView = appView;
-        this.testModel = testModel;
+        this.appModel = appModel;
 
         initController();
     }
@@ -31,8 +31,8 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             Translator translator = Translator.getTranslatorByValue(e.getActionCommand());
-            testModel.setTranslator(translator);
-            appView.generateConverterView(testModel.getTranslator());
+            appModel.setTranslator(translator);
+            appView.generateConverterView(appModel.getTranslator());
         }
     }
 
@@ -44,14 +44,14 @@ public class Controller {
                         Double.parseDouble(String.valueOf(appView.getAmountSpinner().getValue())));
                 Converter converter = new Converter(startingAmount);
 
-                testModel.setTransaction(new Date(), startingAmount, converter.getConvertedAmount(), converter.getFees());
-                if(appView.generateSummaryView(testModel.getTranslator(), testModel.getReceipt().getReceiptData()) == 0){
-                    appView.enableConverterPanel();
+                appModel.setTransaction(new Date(), startingAmount, converter.getConvertedAmount(), converter.getFees());
+                if(appView.generateSummaryView(appModel.getTranslator(), appModel.getReceipt().getReceiptData()) == 0){
+                    appView.enableConverterView();
                 } else {
-                    appView.generateReceiptView(testModel.getReceipt().getReceiptData());
+                    appView.generateReceiptView(appModel.getReceipt().getReceiptData());
                 }
             } else {
-                appView.generateErrorMessage("Error", "Please agree to terms inorder to proceed.");
+                appView.generateErrorMessage(appModel.getTranslator());
             }
         }
     }
@@ -59,8 +59,8 @@ public class Controller {
     public class helpListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            appView.generateHelpView(testModel.getTranslator().getHelpButtonText(),
-                    testModel.getTranslator().getHelpMessage());
+            appView.generateHelpView(appModel.getTranslator().getHelpButtonText(),
+                    appModel.getTranslator().getHelpMessage());
         }
     }
 }

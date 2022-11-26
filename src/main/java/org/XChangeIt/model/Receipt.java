@@ -1,12 +1,14 @@
 package org.XChangeIt.model;
 
+import org.XChangeIt.translation.Translator;
+
 public class Receipt {
     private final String receiptText;
 
 
     public Receipt(Transaction transaction, Translator translator) {
         // The formatting of "receiptText" here is a placeholder. Change if need-be.
-        this.receiptText = translator.getSummaryTitle() +
+        this.receiptText = translator.getSummaryText() +
                 "\n\n" + translator.getTransactionProcessed() +  transaction.getTransactionTime().toString() +
                 "\n" + translator.getCurrencyDeposited() + transaction.getStartingAmount().getCurrencyType() + " " +
                 transaction.getStartingAmount().getAmount() + "\n" + translator.getCurrencyWithdrawn() +

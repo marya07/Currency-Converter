@@ -1,12 +1,13 @@
 package org.XChangeIt.view;
 
-import org.XChangeIt.model.Translator;
+import org.XChangeIt.translation.Translator;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class AppView {
-    private final String[] languageSupport = {"ENGLISH", "中国人", "FRANÇAIS", "DEUTSCH", "日本", "PORTUGUÊS", "РУССКИЙ", "ESPAÑOL"};
+    private final String[] languageSupport = {"ENGLISH", "中国人", "FRANÇAIS", "DEUTSCH", "日本", "PORTUGUÊS",
+                                                                                                "РУССКИЙ", "ESPAÑOL"};
     private final String[] currencySupport = {"AUD", "BRL", "CAD", "CNY", "EUR", "GBP", "INR", "JPY", "MXN", "NZD", "RUB"};
     private final JFrame frame = new JFrame();
     private final JPanel languagePanel = new JPanel();
@@ -17,7 +18,8 @@ public class AppView {
     private final JButton helpButton = new JButton();
     private final JComboBox<String> currencyComboBox = new JComboBox<>(currencySupport);
     private final JCheckBox termsCheckBox = new JCheckBox();
-    private final SpinnerModel amountValue = new SpinnerNumberModel(100, 100, 1000000, 1);
+    private final JTextArea termsText = new JTextArea();
+    private final SpinnerModel amountValue = new SpinnerNumberModel(1000, 100, 25000, 1);
     private final JSpinner amountSpinner = new JSpinner(amountValue);
 
     public AppView() {
@@ -63,6 +65,10 @@ public class AppView {
         greetingPanel.add(greetingLabel);
         converterPanel.add(greetingPanel);
 
+        JPanel topPanel = new JPanel();
+        topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
+        topPanel.setBorder(BorderFactory.createEmptyBorder(75, 75, 75,25));
+
         JPanel comboBoxPanel = new JPanel();
         currencyComboBox.setFont(new Font("Arial", Font.PLAIN, 20));
         JLabel currencyLabel = new JLabel("Currency: ");
@@ -70,7 +76,7 @@ public class AppView {
         currencyLabel.setLabelFor(currencyComboBox);
         comboBoxPanel.add(currencyLabel);
         comboBoxPanel.add(currencyComboBox);
-        converterPanel.add(comboBoxPanel);
+        topPanel.add(comboBoxPanel);
 
         JPanel amountPanel = new JPanel();
         amountSpinner.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -79,15 +85,24 @@ public class AppView {
         amountLabel.setLabelFor(amountSpinner);
         amountPanel.add(amountLabel);
         amountPanel.add(amountSpinner);
-        converterPanel.add(amountPanel);
+        topPanel.add(amountPanel);
+
+        converterPanel.add(topPanel);
+
+        JPanel termsPanel = new JPanel();
+        termsText.setEditable(false);
+        termsText.setText(translator.getTermsBoxText());
+        termsText.setLineWrap(true);
+        termsText.setSize(350, 30);
+        termsText.setFont(new Font("Arial", Font.PLAIN, 15));
+        termsText.setForeground(Color.red);
+        termsText.setBackground(Color.orange);
+        termsPanel.add(termsCheckBox);
+        termsPanel.add(termsText);
+        converterPanel.add(termsPanel);
 
 
         JPanel lowerPanel = new JPanel();
-        termsCheckBox.setFont(new Font("Arial", Font.PLAIN, 15));
-        termsCheckBox.setForeground(Color.red);
-        termsCheckBox.setText(translator.getTermsBoxText());
-        lowerPanel.add(termsCheckBox);
-
         convertButton.setFont(new Font("Arial", Font.PLAIN, 25));
         convertButton.setForeground(new Color(0, 153,0));
         convertButton.setText(translator.getConvertButtonText());
@@ -105,8 +120,9 @@ public class AppView {
         converterPanel.setBackground(Color.lightGray);
         frame.add(converterPanel);
     }
-
-
+    public void enableConverterView() {
+        converterPanel.setVisible(true);
+    }
     public void disableConverterView(){
         converterPanel.setVisible(false);
     }
@@ -117,18 +133,20 @@ public class AppView {
         JOptionPane.showMessageDialog(frame, helpMessage, helpText, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(icon));
     }
 
-    public void generateErrorMessage(String errorText, String errorMessage){
+    public void generateErrorMessage(Translator translator){
         Image icon = new ImageIcon("src/main/resources/Icons/exclamationIcon.png").getImage().
                 getScaledInstance(200, 200, Image.SCALE_DEFAULT);
-        JOptionPane.showMessageDialog(frame, errorMessage, errorText, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(icon));
+        JOptionPane.showMessageDialog(frame, translator.getErrorMessage(), translator.getErrorText(),
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon(icon));
     }
+
     public int generateSummaryView(Translator translator, String summary){
         disableConverterView();
         Image icon = new ImageIcon("src/main/resources/Icons/checkMarkIcon.png").getImage().
                 getScaledInstance(200, 200, Image.SCALE_DEFAULT);
 
-        return JOptionPane.showConfirmDialog(frame, "Transaction Successful!\n\n"+ summary + "\n\n" +
-                        translator.getRepeatText(), "Transaction Summary",
+        return JOptionPane.showConfirmDialog(frame, translator.getSuccessMessage() +
+                        "\n\n" + summary + "\n\n" + translator.getRepeatText(), translator.getSummaryTitle(),
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon(icon));
     }
 
@@ -160,10 +178,6 @@ public class AppView {
 
     public JCheckBox getTermsCheckBox() {
         return termsCheckBox;
-    }
-
-    public void enableConverterPanel() {
-        converterPanel.setVisible(true);
     }
 
     public JSpinner getAmountSpinner() {
