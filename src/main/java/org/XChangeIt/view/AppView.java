@@ -60,7 +60,7 @@ public class AppView {
         converterPanel.setBorder(BorderFactory.createTitledBorder("CONVERTER"));
 
         JPanel greetingPanel = new JPanel();
-        greetingLabel.setFont(new Font("Sans", Font.ITALIC, 35));
+        greetingLabel.setFont(new Font("Sans", Font.BOLD, 35));
         greetingLabel.setText(translator.getGreetingLabelText());
         greetingPanel.add(greetingLabel);
         converterPanel.add(greetingPanel);
@@ -103,7 +103,7 @@ public class AppView {
 
 
         JPanel lowerPanel = new JPanel();
-        convertButton.setFont(new Font("Arial", Font.PLAIN, 25));
+        convertButton.setFont(new Font("Arial", Font.BOLD, 25));
         convertButton.setForeground(new Color(0, 153,0));
         convertButton.setText(translator.getConvertButtonText());
         lowerPanel.add(convertButton);

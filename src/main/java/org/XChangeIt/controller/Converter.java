@@ -5,9 +5,6 @@ import org.XChangeIt.model.Money;
 import java.io.File;
 
 public class Converter {
-    /**
-     * Creates a Converter object to handle conversion of given amount and currency type to base currency.
-     */
     public Converter(Money m) {
         File file = new File("src/main/resources/ExchangeRates.xml");
         DataExtractor extractor = new DataExtractor(file, m.getCurrencyType());
@@ -19,11 +16,6 @@ public class Converter {
         this.convertedAmount = new Money("USD", (converted - deductFees(converted)));
         this.fees = new Money("USD", deductFees(converted));
     }
-
-    /**
-     * Converter method to perform conversion of given amount.
-     * @return
-     */
 
     public Money getConvertedAmount(){
         return this.convertedAmount;
