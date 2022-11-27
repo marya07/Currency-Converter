@@ -1,6 +1,6 @@
 package org.XChangeIt.controller;
-import org.XChangeIt.model.DataStorage;
 
+import org.XChangeIt.model.DataStorage;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -18,8 +18,8 @@ public class DataExtractor {
      * @param fromCurrency currency for which data needs to extracted for conversion.
      */
     public DataExtractor(File file, String fromCurrency){
-        f = file;
-        baseCurrency = fromCurrency;
+        f = file;                       //Gets the file to input from
+        baseCurrency = fromCurrency;    //Gets the base currency
     }
 
     /**
@@ -29,11 +29,13 @@ public class DataExtractor {
     public DataStorage extraction(){
         DataStorage d = null;
         try {
+            //Creates .xml data extractor and parses for the data, which is delineated by "item"
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(f);
             NodeList list = doc.getElementsByTagName("item");
 
+            //Loops through the source .xml file to get the description, date, base currency, target currency, exchange rate, and inverse exchange rate
             for (int i = 0; list.getLength() > i; i++) {
                 Node n = list.item(i);
                 Element e = (Element) n;
@@ -45,16 +47,19 @@ public class DataExtractor {
                     String tCurr = e.getElementsByTagName("targetCurrency").item(0).getTextContent();
                     double eRate = Double.parseDouble(e.getElementsByTagName("exchangeRate").item(0).getTextContent());
                     double iRate = Double.parseDouble(e.getElementsByTagName("inverseRate").item(0).getTextContent());
+                    //Creates a new DataStorage object with the collected data
                     d = new DataStorage(description, date, bCurr, tCurr, eRate, iRate);
                 }
             }
-        } catch (Exception e) {
+        }
+        //Catches any problem and outputs the cause and the stack trace
+        catch (Exception e) {
             e.getCause();
             e.printStackTrace(System.out);
         }
-        return d;
+        return d;       //Returns the DataStorage Object
     }
 
-    private final File f;
-    private final String baseCurrency;
+    private final File f;       //File object
+    private final String baseCurrency;  //String to hold the base currency
 }
