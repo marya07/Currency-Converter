@@ -18,6 +18,7 @@ public class Controller {
 
         initController();
     }
+
     public void initController() {
         for(JButton button : appView.getLanguageButtons()) {
             button.addActionListener(new languageListener());
