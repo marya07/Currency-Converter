@@ -11,7 +11,6 @@ public class AppModel {
     private Transaction transaction;    //Transaction variable to hold the details of the transaction
     private Translator translator;      //Translator variable to hold the translation for the output
     private Receipt receipt;            //Receipt variable to hold the receipt
-    private Profits profits;
     /**
      * Function to get the translator
      * @return translator Translator variable returned to show the translation for the receipt
@@ -32,7 +31,6 @@ public class AppModel {
         transactionList.addTransaction(transaction);        //Adds the transaction to the list
         receipt = new Receipt(transaction, translator);     //Creates a new receipt based on the transaction and the translator
         receiptList.addReceipt(receipt);
-        this.profits = new Profits();
     }
 
     /**
