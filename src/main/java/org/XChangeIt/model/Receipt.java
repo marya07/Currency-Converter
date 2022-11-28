@@ -19,13 +19,14 @@ public class Receipt {
      */
     public Receipt(Transaction transaction, Translator translator) {
         //Gets the relevant data to produce a receipt. The data is from the transactions
-        this.receiptText = translator.getSummaryText() +
+        this.receiptText = "\n\n" + translator.getSummaryText() +
                 "\n\n" + translator.getTransactionProcessed() +  transaction.getTransactionTime().toString() +
                 "\n" + translator.getCurrencyDeposited() + transaction.getStartingAmount().getCurrencyType() + " " +
                 transaction.getStartingAmount().getAmount() + "\n" + translator.getCurrencyWithdrawn() +
                 transaction.getEndingAmount().getCurrencyType() + " " + transaction.getEndingAmount().getAmount() +
                 "\n" + translator.getFeeCharged() + transaction.getFees().getCurrencyType() + " " +
                 transaction.getFees().getAmount();
+        printReceipt();
     }
 
     /**
@@ -75,7 +76,6 @@ public class Receipt {
      * @return receiptText variable that holds the text for the receipt
      */
     public String getReceiptData() {
-        printReceipt();     //Prints the receipt to a file
         return receiptText;
     }
 }

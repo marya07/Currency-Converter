@@ -70,7 +70,7 @@ public class Controller {
                 } else {
                     StringBuilder receiptText = new StringBuilder();
                     for(int i = 0; i < appModel.getTransactionList().getTransactionArrayList().size(); i++){
-                        receiptText.append("\n\n" + appModel.getReceiptList().getReceiptByIndex(i).getReceiptData());
+                        receiptText.append(appModel.getReceiptList().getReceiptByIndex(i).getReceiptData());
                     }
                     appView.generateReceiptView(receiptText + "\n\n" +
                             appModel.getTranslator().getThanksMessage());
