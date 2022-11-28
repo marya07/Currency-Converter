@@ -1,7 +1,9 @@
 package org.XChangeIt.model;
 
+/**
+ * Data storage class for storing data retrieved from the data source.
+ */
 public class DataStorage {
-
     private final String rateDescription;       //String variable to hold the description of the exchange rate
     private final String rateDate;              //String variable to hold the date of the currency rate
     private final String baseCurrency;          //String variable to hold the base currency
@@ -16,8 +18,8 @@ public class DataStorage {
      * @param exchangeRate The double representing the exchange rate.
      * @param inverseRate The double representing the inverse exchange rate.
      */
-
-    public DataStorage(String rateDescription, String rateDate, String baseCurrency, String targetCurrency, double exchangeRate, double inverseRate) {
+    public DataStorage(String rateDescription, String rateDate, String baseCurrency, String targetCurrency,
+                                                                        double exchangeRate, double inverseRate) {
         this.rateDescription = rateDescription;     //Stores the description of the rate
         this.rateDate = rateDate;                   //Stores the date of the rate
         this.baseCurrency = baseCurrency;           //Stores the base currency

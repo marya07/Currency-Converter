@@ -2,8 +2,11 @@ package org.XChangeIt.model;
 
 import java.util.ArrayList;
 
+/**
+ * Class for storing all the processed transactions data for the current session.
+ */
 public class TransactionList {
-    private final ArrayList<Transaction> transactionArrayList = new ArrayList<org.XChangeIt.model.Transaction>();   //Variable to hold the list of transactions
+    private final ArrayList<Transaction> transactionArrayList = new ArrayList<Transaction>();   //Variable to hold the list of transactions
 
     /**
      * Function to add a transaction to the list
@@ -11,7 +14,7 @@ public class TransactionList {
      */
     public void addTransaction(Transaction transaction) {
 
-        transactionArrayList.add(transaction);      //Adds the transaction to the array list
+        transactionArrayList.add(transaction);
     }
 
     /**
@@ -19,7 +22,7 @@ public class TransactionList {
      * @param i Index to get the transaction from
      * @return Transaction object from that location.
      */
-    public org.XChangeIt.model.Transaction getTransactionByIndex(int i) {
+    public Transaction getTransactionByIndex(int i) {
         return transactionArrayList.get(i);
     }
 

@@ -1,5 +1,8 @@
 package org.XChangeIt.translation;
 
+/**
+ * Enum with language data for facilitating translation.
+ */
 public enum Translator {
     //Declares English phrases to be used
     //The other phrases are the exact duplicates of the English phrases, only translated into that langauge

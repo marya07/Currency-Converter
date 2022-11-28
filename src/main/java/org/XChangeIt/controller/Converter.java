@@ -4,8 +4,10 @@ import org.XChangeIt.model.Money;
 
 import java.io.File;
 
+/**
+ * Class for handling conversion to USD given an instance of Money with currency type and amount.
+ */
 public class Converter {
-
     /**
      * Function to convert money based on the passed money object
      * @param m Money object to
@@ -14,16 +16,20 @@ public class Converter {
         //New file object to get the exchange rates
         File file = new File("src/main/resources/ExchangeRates.xml");
         org.XChangeIt.controller.DataExtractor extractor = new DataExtractor(file, m.getCurrencyType());
+
         //Gets the currency data to convert
         this.currencyData = extractor.extraction();
         //Gets the amount to convert
         this.amount = m.getAmount();
 
         double converted;
+
         //Gets the converted amount into USD(USD for the moment)
         converted = ((1/currencyData.getExchangeRate())*amount);
+
         //Deducts the fees from the converted amount
         this.convertedAmount = new Money("USD", (converted - deductFees(converted)));
+
         //Gets the fees
         this.fees = new Money("USD", deductFees(converted));
     }

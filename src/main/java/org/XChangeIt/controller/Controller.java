@@ -10,6 +10,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
+/**
+ * Controller class to facilitate the overall control of the program, common connection for View and Model classes.
+ */
 public class Controller {
     private final AppView appView;      //Variable to hold the app view
     private final AppModel appModel;    //Variable to hold the appModel
@@ -41,7 +44,6 @@ public class Controller {
      * Function to listen for the language
      */
     public class languageListener implements ActionListener {
-        //Overrides the action performed for when the button to select the language is pressed
         @Override
         public void actionPerformed(ActionEvent e) {
             Translator translator = Translator.getTranslatorByValue(e.getActionCommand());
@@ -55,7 +57,6 @@ public class Controller {
      * converting, the program may do another transaction, or print the receipt.
      */
     public class converterListener implements ActionListener {
-        //Overrides the action performed for when the convert button is pressed
         @Override
         public void actionPerformed(ActionEvent e) {
             if(appView.getTermsCheckBox().isSelected()) {
@@ -67,9 +68,9 @@ public class Controller {
                 if(appView.generateSummaryView(appModel.getTranslator(), appModel.getReceipt().getReceiptData()) == 0){
                     appView.enableConverterView();
                 } else {
-                    String receiptText = "";
+                    StringBuilder receiptText = new StringBuilder();
                     for(int i = 0; i < appModel.getTransactionList().getTransactionArrayList().size(); i++){
-                        receiptText += (appModel.getReceiptList().getReceiptByIndex(i).getReceiptData());
+                        receiptText.append(appModel.getReceiptList().getReceiptByIndex(i).getReceiptData());
                     }
                     appView.generateReceiptView(receiptText + "\n\n" +
                             appModel.getTranslator().getThanksMessage());
@@ -84,7 +85,6 @@ public class Controller {
      * Function to listen for the help button to be pressed, at which point a help message will appear
      */
     public class helpListener implements ActionListener{
-        //Overrides the action performed for when the help button is pressed
         @Override
         public void actionPerformed(ActionEvent e) {
             appView.generateHelpView(appModel.getTranslator().getHelpButtonText(),

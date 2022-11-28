@@ -6,6 +6,9 @@ import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 
+/**
+ * Class for displaying receipts with data for a processed transaction.
+ */
 public class Receipt {
     private final String receiptText;   //Creates a private string variable to hold the receipt for the transaction
 
@@ -33,7 +36,8 @@ public class Receipt {
         try
         {
             //Opens the receipts file in append mode.
-            BufferedWriter receiptFile = new BufferedWriter(new FileWriter("src/main/resources/Output/Receipts.txt", true));
+            BufferedWriter receiptFile = new BufferedWriter(
+                    new FileWriter("src/main/resources/Output/Receipts.txt", true));
             receiptFile.write(receiptText);     //Appends the receipt data to the file
             receiptFile.close();                //Closes the connection to the file
         }

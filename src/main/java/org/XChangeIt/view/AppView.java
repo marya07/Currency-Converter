@@ -5,10 +5,16 @@ import org.XChangeIt.translation.Translator;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ *  Class for handling the gui for the program, displaying various initializing and displaying various gui components
+ */
 public class AppView {
+    //holds an array of strings that contains which languages are supported
     private final String[] languageSupport = {"ENGLISH", "中国人", "FRANÇAIS", "DEUTSCH", "日本", "PORTUGUÊS",
                                                                                                 "РУССКИЙ", "ESPAÑOL"};
+    //holds an array of strings that contains which currencies are supported
     private final String[] currencySupport = {"AUD", "BRL", "CAD", "CNY", "EUR", "GBP", "INR", "JPY", "MXN", "NZD", "RUB"};
+
     private final JFrame frame = new JFrame();
     private final JPanel languagePanel = new JPanel();
     private final JPanel converterPanel = new JPanel();
@@ -22,6 +28,10 @@ public class AppView {
     private final SpinnerModel amountValue = new SpinnerNumberModel(1000, 100, 25000, 1);
     private final JSpinner amountSpinner = new JSpinner(amountValue);
 
+    /**
+     * Class constructor responsible for initializing language buttons for the main view and generating the main view or
+     * language selection view.
+     */
     public AppView() {
         for (int i = 0; i < languageButtons.length; i++) {
             languageButtons[i] = new JButton(languageSupport[i]);
@@ -29,6 +39,9 @@ public class AppView {
         generateMainView();
     }
 
+    /**
+     * Method for setting and populating the main view/language selection view with language selection buttons.
+     */
     public void generateMainView() {
         frame.setTitle("XChangeIt Currency Converter");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -37,6 +50,7 @@ public class AppView {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
 
+        languagePanel.setBackground(Color.lightGray);
         languagePanel.setLayout(new GridLayout(8, 1));
         languagePanel.setBorder(BorderFactory.createEmptyBorder(50, 75, 50, 75));
 
@@ -46,10 +60,19 @@ public class AppView {
         frame.add(languagePanel);
     }
 
+    /**
+     * Method for disabling/hiding the language panel to disable the main view.
+     */
     public void disableMainView() {
         languagePanel.setVisible(false);
     }
 
+    /**
+     * Method for setting and populating the converter view with converter components for currency selection,
+     * amount input, displaying terms checkbox, button for handling conversion and button for help window.
+     * @param translator translator instance for a given language selected by the user to populate text in
+     *                   the preferred language.
+     */
     public void generateConverterView(Translator translator) {
         disableMainView();
         converterPanel.setLayout(new BoxLayout(converterPanel, BoxLayout.Y_AXIS));
@@ -58,6 +81,7 @@ public class AppView {
         converterPanel.setMaximumSize(new Dimension(400, 400));
         converterPanel.setMinimumSize(new Dimension(400, 400));
         converterPanel.setBorder(BorderFactory.createTitledBorder("CONVERTER"));
+        converterPanel.setBackground(Color.lightGray);
 
         JPanel greetingPanel = new JPanel();
         greetingLabel.setFont(new Font("Sans", Font.BOLD, 35));
@@ -120,19 +144,37 @@ public class AppView {
         converterPanel.setBackground(Color.lightGray);
         frame.add(converterPanel);
     }
+
+    /**
+     * Method for enabling the converter panel to enable the converter view.
+     */
     public void enableConverterView() {
         converterPanel.setVisible(true);
     }
+
+    /**
+     * Method for disabling/hiding the converter panel to disable the converter view.
+     */
     public void disableConverterView(){
         converterPanel.setVisible(false);
     }
 
+    /**
+     * Method for generating a Dialog window with help message in the preferred language.
+     * @param helpText "Help" text in the preferred language for setting tile.
+     * @param helpMessage Help message in the preferred language for displaying as a message in the window.
+     */
     public void generateHelpView(String helpText, String helpMessage){
         Image icon = new ImageIcon("src/main/resources/Icons/QuestionMarkIcon.png").getImage().
                 getScaledInstance(200, 200, Image.SCALE_DEFAULT);
         JOptionPane.showMessageDialog(frame, helpMessage, helpText, JOptionPane.INFORMATION_MESSAGE, new ImageIcon(icon));
     }
 
+    /**
+     * Method for generating an error dialog window if user tried to convert without agreeing to the terms.
+     * @param translator translator instance for a given language selected by the user to populate text in
+     *                   the preferred language.
+     */
     public void generateErrorMessage(Translator translator){
         Image icon = new ImageIcon("src/main/resources/Icons/exclamationIcon.png").getImage().
                 getScaledInstance(200, 200, Image.SCALE_DEFAULT);
@@ -140,6 +182,14 @@ public class AppView {
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon(icon));
     }
 
+    /**
+     * Method for generating an option dialog window with the details of transaction and asking user if they want to do
+     * more conversion.
+     * @param translator translator instance for a given language selected by the user to populate text in
+     *                   the preferred language
+     * @param summary String with data for the current processed transaction.
+     * @return returns an int 0 or 1 to be used as logical check inside the controller.
+     */
     public int generateSummaryView(Translator translator, String summary){
         disableConverterView();
         Image icon = new ImageIcon("src/main/resources/Icons/checkMarkIcon.png").getImage().
@@ -150,6 +200,11 @@ public class AppView {
                 JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, new ImageIcon(icon));
     }
 
+
+    /**
+     * Method for generating a receipt for all the transactions the user performed.
+     * @param receiptText String with details of the transaction in the preferred language.
+     */
     public void generateReceiptView(String receiptText){
         frame.setVisible(false);
         Image icon = new ImageIcon("src/main/resources/Icons/handShakeIcon.png").getImage().
@@ -160,26 +215,50 @@ public class AppView {
         System.exit(0);
     }
 
+    /**
+     * Function to get the language button
+     * @return languageButtons
+     */
     public JButton[] getLanguageButtons() {
         return languageButtons;
     }
 
+    /**
+     * Function to get the convert button
+     * @return convertButton
+     */
     public JButton getConvertButton() {
         return convertButton;
     }
 
+    /**
+     * Function to get the help button
+     * @return helpButton
+     */
     public JButton getHelpButton() {
         return helpButton;
     }
 
+    /**
+     * Function to get the currency combo box
+     * @return currencyComboBox
+     */
     public JComboBox<String> getCurrencyComboBox() {
         return currencyComboBox;
     }
 
+    /**
+     * Function to get the terms check box
+     * @return termsCheckBox
+     */
     public JCheckBox getTermsCheckBox() {
         return termsCheckBox;
     }
 
+    /**
+     * Function to get the amount spinner
+     * @return amountSpinner
+     */
     public JSpinner getAmountSpinner() {
         return amountSpinner;
     }

@@ -11,6 +11,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
 import java.util.Objects;
 
+/**
+ * Class for extracting and storing data to dataStorage from a given .XML file.
+ */
 public class DataExtractor {
     /**
      * Creates a new DataExtractor object for extracting data from the given XML file conating rate data.
@@ -29,13 +32,14 @@ public class DataExtractor {
     public DataStorage extraction(){
         DataStorage d = null;
         try {
-            //Creates .xml data extractor and parses for the data, which is delineated by "item"
+            //Creates .xml data extractor and parses the data, which is delineated by "item"
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document doc = builder.parse(f);
             NodeList list = doc.getElementsByTagName("item");
 
-            //Loops through the source .xml file to get the description, date, base currency, target currency, exchange rate, and inverse exchange rate
+            //Loops through the source .xml file to get the description, date, base currency, target currency,
+            // exchange rate, and inverse exchange rate
             for (int i = 0; list.getLength() > i; i++) {
                 Node n = list.item(i);
                 Element e = (Element) n;

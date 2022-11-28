@@ -3,9 +3,12 @@ package org.XChangeIt.model;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
+/**
+ * Class creates an object to store currency type and amount to replicate structure of a physical legal tender
+ */
 public class Money {
-    private String currencyType;        //String variable to hold the type of currency
-    private double amount;              //double variable to hold the amount of currency
+    private final String currencyType;        //String variable to hold the type of currency
+    private final double amount;              //double variable to hold the amount of currency
 
     /**
      * Constructor function to build the currency data
@@ -13,16 +16,16 @@ public class Money {
      * @param amount double variable holding how much currency to process
      */
     public Money(String currencyType, double amount){
-        this.currencyType = currencyType;       //Stores the currency type
-        this.amount = BigDecimal.valueOf(amount).setScale(2, RoundingMode.HALF_DOWN).doubleValue(); //Stores the amount of currency and rounds the decimals
+        this.currencyType = currencyType;
+        this.amount = BigDecimal.valueOf(amount).setScale(2, RoundingMode.HALF_DOWN).doubleValue();
     }
 
     /**
      * Function to get the currency type
      * @return currencyType String variable holding the type of currency
      */
-    public String getCurrencyType(){
-        return currencyType;        //Returns the type of currency
+    public String getCurrencyType() {
+        return currencyType;
     }
 
     /**
@@ -31,7 +34,7 @@ public class Money {
      */
     public Double getAmount(){
 
-        return amount;      //Returns the amount of currency
+        return amount;
     }
 
 }

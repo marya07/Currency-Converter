@@ -2,6 +2,9 @@ package org.XChangeIt.model;
 
 import java.util.Date;
 
+/**
+ * Class for storing all the transaction data for a processed transaction.
+ */
 public class Transaction {
     private final Date transactionTime;     //Variable holding the date of the transaction
     private final Money startingAmount;     //Variable holding the starting amount and its details
