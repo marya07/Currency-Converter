@@ -118,7 +118,7 @@ public class AppView {
         termsText.setText(translator.getTermsBoxText());
         termsText.setLineWrap(true);
         termsText.setSize(350, 30);
-        termsText.setFont(new Font("Arial", Font.PLAIN, 15));
+        termsText.setFont(new Font("Sans", Font.PLAIN, 15));
         termsText.setForeground(Color.red);
         termsText.setBackground(Color.orange);
         termsPanel.add(termsCheckBox);
@@ -127,7 +127,7 @@ public class AppView {
 
 
         JPanel lowerPanel = new JPanel();
-        convertButton.setFont(new Font("Arial", Font.BOLD, 25));
+        convertButton.setFont(new Font("Sans", Font.BOLD, 25));
         convertButton.setForeground(new Color(0, 153,0));
         convertButton.setText(translator.getConvertButtonText());
         lowerPanel.add(convertButton);
@@ -135,7 +135,7 @@ public class AppView {
         converterPanel.add(lowerPanel);
 
         JPanel helpPanel = new JPanel();
-        helpButton.setFont(new Font("Arial", Font.PLAIN, 20));
+        helpButton.setFont(new Font("Sans", Font.PLAIN, 20));
         helpButton.setForeground(Color.blue);
         helpButton.setText(translator.getHelpButtonText());
         helpPanel.add(helpButton);

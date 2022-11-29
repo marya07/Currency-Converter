@@ -43,3 +43,72 @@ Transaction traitée: Mon Nov 28 22:33:35 CST 2022
 Monnaie déposée: BRL 1000.0
 Devise retirée: USD 183.87
 Frais facturés: USD 4.14
+
+Your Transaction Information: 
+
+Transaction Processed: Mon Nov 28 23:01:23 CST 2022
+Currency Deposited: EUR 5000.0
+Currency Withdrawn: USD 5091.56
+Fee Charged: USD 114.53
+
+
+
+
+Your Transaction Information: 
+
+Transaction Processed: Mon Nov 28 23:02:14 CST 2022
+Currency Deposited: JPY 25000.0
+Currency Withdrawn: USD 176.66
+Fee Charged: USD 3.97
+
+
+
+
+Your Transaction Information: 
+
+Transaction Processed: Mon Nov 28 23:16:32 CST 2022
+Currency Deposited: GBP 2500.0
+Currency Withdrawn: USD 2962.54
+Fee Charged: USD 66.64
+
+
+
+
+Your Transaction Information: 
+
+Transaction Processed: Mon Nov 28 23:17:07 CST 2022
+Currency Deposited: CAD 500.0
+Currency Withdrawn: USD 366.58
+Fee Charged: USD 8.25
+
+
+
+
+Your Transaction Information: 
+
+Transaction Processed: Mon Nov 28 23:17:23 CST 2022
+Currency Deposited: JPY 20000.0
+Currency Withdrawn: USD 141.33
+Fee Charged: USD 3.18
+
+
+
+
+您的交易信息：
+
+交易处理： Mon Nov 28 23:31:23 CST 2022
+存入货币： JPY 1000.0
+提取货币： USD 7.07
+收费： USD 0.16
+
+
+
+
+Ihre Transaktionsinformationen: 
+
+Transaktion verarbeitet: Mon Nov 28 23:32:25 CST 2022
+Eingezahlte Währung: EUR 1000.0
+Abgehobene Währung: USD 1018.31
+Gebührenpflichtig: USD 22.91
+
+
