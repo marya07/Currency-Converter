@@ -39,7 +39,7 @@ public class Receipt {
             //Opens the receipts file in append mode.
             BufferedWriter receiptFile = new BufferedWriter(
                     new FileWriter("src/main/resources/Output/Receipts.txt", true));
-            receiptFile.write(receiptText);     //Appends the receipt data to the file
+            receiptFile.write(receiptText + "\n\n\n");     //Appends the receipt data to the file
             receiptFile.close();                //Closes the connection to the file
         }
         //Catches if the file does not exist
@@ -50,7 +50,7 @@ public class Receipt {
                 System.out.println("Output file not found. Creating output file.");
                 //Creates the output file to output the receipt
                 FileWriter myWriter = new FileWriter("src/main/resources/Output/Receipts.txt");
-                myWriter.write(receiptText);    //Write the receipt to the file
+                myWriter.write(receiptText + "\n\n\n");    //Write the receipt to the file
                 myWriter.close();               //Close the output file
             }
             //Catches any problem from creating the file
