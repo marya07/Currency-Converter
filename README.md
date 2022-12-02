@@ -20,3 +20,5 @@ After these steps, the program should run without any errors or complications.
 Github Link: https://github.com/XChangeIt/Group-6-XChangeIt-CurrencyConverter.git
 
 Meeting Minutes: https://docs.google.com/document/d/1gSyKmDHOtwePwF6RqdritT_BHK1tpgA9l4BaQDVXqbg/edit?usp=sharing
+
+Video Link: https://drive.google.com/file/d/1ex8kzgEl-Md6HZ1E3EKH_-FbbKf2INza/view?usp=sharing
