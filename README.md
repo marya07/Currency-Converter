@@ -18,3 +18,4 @@ After these steps, the program should run without any errors or complications.
 *Note: If Intellij asks, make sure to select that you trust the project.
 
 Github Link: https://github.com/XChangeIt/Group-6-XChangeIt-CurrencyConverter.git
+Meeting Minutes: https://docs.google.com/document/d/1gSyKmDHOtwePwF6RqdritT_BHK1tpgA9l4BaQDVXqbg/edit?usp=sharing
